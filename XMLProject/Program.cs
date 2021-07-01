@@ -28,6 +28,14 @@ namespace XMLProject
             XmlText memberNameTwo = xmldoc.CreateTextNode("Maryam Alraddadi");
             root.AppendChild(memberTwo);
             memberTwo.AppendChild(memberNameTwo);
+            XmlElement memberTree = xmldoc.CreateElement("member");
+            XmlText memberNameTree = xmldoc.CreateTextNode("Abdulaziz Alasmari");
+            root.AppendChild(memberTree);
+            memberTree.AppendChild(memberNameTree);
+            XmlElement memberForth = xmldoc.CreateElement("member");
+            XmlText memberNameForth = xmldoc.CreateTextNode("Mansour Aldundur");
+            root.AppendChild(memberForth);
+            memberForth.AppendChild(memberNameForth);
 
 
             xmldoc.Save(@"C:\Users\win\Desktop\team.xml");
