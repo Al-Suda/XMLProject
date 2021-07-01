@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Xml;
 namespace XMLProject
 {
@@ -7,8 +8,14 @@ namespace XMLProject
     {
         static void Main(string[] args)
         {
-            CreateXMLFiles();
-            ReadXMLFile(); 
+            Thread writeThread = new Thread(CreateXMLFiles);
+            Thread readThread = new Thread(ReadXMLFile);
+            
+            writeThread.Start();
+            writeThread.Join();
+
+            readThread.Start();
+            readThread.Join();
         }
         static void CreateXMLFiles()
         {
