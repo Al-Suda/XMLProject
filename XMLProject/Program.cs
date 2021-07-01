@@ -15,13 +15,13 @@ namespace XMLProject
             XmlDocument xmldoc = new XmlDocument();
             XmlElement root = xmldoc.CreateElement("team");
             xmldoc.AppendChild(root);
-            XmlElement element1 = xmldoc.CreateElement("member");
-            XmlText text1 = xmldoc.CreateTextNode("Fatimah");
-            XmlAttribute Attribute1 = xmldoc.CreateAttribute("first-name");
-            Attribute1.Value = "Fatimah";
-            root.AppendChild(element1);
-            element1.AppendChild(text1);
-            xmldoc.Save(@"C:\Users\win\Desktop\TeamMembers.xml");
+            
+            XmlElement member = xmldoc.CreateElement("member");
+            XmlText memberName = xmldoc.CreateTextNode("Fatimah");
+            root.AppendChild(member);
+            member.AppendChild(memberName);
+            
+            xmldoc.Save(@"/Users/maryam/Desktop/team.xml");
             Console.WriteLine(xmldoc.InnerText);
         }
        
