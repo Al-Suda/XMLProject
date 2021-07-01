@@ -7,8 +7,8 @@ namespace XMLProject
     {
         static void Main(string[] args)
         {
-          CreateXMLFiles();
-      
+            CreateXMLFiles();
+            ReadXMLFile(); 
         }
         static void CreateXMLFiles()
         {
@@ -38,8 +38,20 @@ namespace XMLProject
             memberForth.AppendChild(memberNameForth);
 
 
-            xmldoc.Save(@"C:\Users\win\Desktop\team.xml");
+            xmldoc.Save(@"team.xml");
             Console.WriteLine(xmldoc.InnerText);
+        }
+        static void ReadXMLFile()
+        {
+            XmlDocument xmldoc = new XmlDocument();
+            xmldoc.Load(@"team.xml");
+            foreach (XmlNode node in xmldoc.DocumentElement.ChildNodes)
+            {
+                string element = node.Name;
+                Console.WriteLine(element + ": ");
+                string text = node.InnerText;
+                Console.WriteLine(text);
+            }
         }
        
     }
