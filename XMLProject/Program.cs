@@ -17,34 +17,34 @@ namespace XMLProject
             readThread.Start();
             readThread.Join();
         }
+
+        private static XmlElement CreateXmlElement(XmlDocument xmldoc, string name)
+        {
+            return xmldoc.CreateElement(name);
+        }
+
+        private static XmlText CreateXmlText(XmlDocument xmldoc, string name)
+        {
+            return xmldoc.CreateTextNode(name);
+        }
+
         static void CreateXMLFiles()
         {
             XmlDocument xmldoc = new XmlDocument();
             XmlElement root = xmldoc.CreateElement("team");
             xmldoc.AppendChild(root);
+
+            var element = CreateXmlElement(xmldoc, "leader");
+            root.AppendChild(element).AppendChild(CreateXmlText(xmldoc, "Ahmed Alzubaidi"));
+            var element2 = CreateXmlElement(xmldoc, "member");
+            root.AppendChild(element2).AppendChild(CreateXmlText(xmldoc, "Fatimah Alqhtany"));
+            var element3 = CreateXmlElement(xmldoc, "member");
+            root.AppendChild(element3).AppendChild(CreateXmlText(xmldoc, "Maryam Alraddadi"));
+            var element4 = CreateXmlElement(xmldoc, "member");
+            root.AppendChild(element4).AppendChild(CreateXmlText(xmldoc, "Abdulaziz Alasmari"));
+            var element5 = CreateXmlElement(xmldoc, "member");
+            root.AppendChild(element5).AppendChild(CreateXmlText(xmldoc, "Mansour Aldundur"));
             
-            XmlElement leader = xmldoc.CreateElement("leader");
-            XmlText leaderName = xmldoc.CreateTextNode("Ahmed Alzubaidi");
-            root.AppendChild(leader);
-            leader.AppendChild(leaderName);
-            XmlElement memberOne = xmldoc.CreateElement("member");
-            XmlText memberNameOne = xmldoc.CreateTextNode("Fatimah Alqhtany");
-            root.AppendChild(memberOne);
-            memberOne.AppendChild(memberNameOne);
-            XmlElement memberTwo = xmldoc.CreateElement("member");
-            XmlText memberNameTwo = xmldoc.CreateTextNode("Maryam Alraddadi");
-            root.AppendChild(memberTwo);
-            memberTwo.AppendChild(memberNameTwo);
-            XmlElement memberTree = xmldoc.CreateElement("member");
-            XmlText memberNameTree = xmldoc.CreateTextNode("Abdulaziz Alasmari");
-            root.AppendChild(memberTree);
-            memberTree.AppendChild(memberNameTree);
-            XmlElement memberForth = xmldoc.CreateElement("member");
-            XmlText memberNameForth = xmldoc.CreateTextNode("Mansour Aldundur");
-            root.AppendChild(memberForth);
-            memberForth.AppendChild(memberNameForth);
-
-
             xmldoc.Save(@"team.xml");
             Console.WriteLine(xmldoc.InnerText);
         }
