@@ -1,7 +1,7 @@
 <h4 align="center">XML PROJECT</h4>
 
 <p align="center">
-  Create and read xml files and using threads
+  Multithreaded program for creating and reading xml files
 </p>
 
 <p align="center">
